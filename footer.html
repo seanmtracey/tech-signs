@@ -1,2 +1,49 @@
+
+<script>
+
+	const signEls = document.querySelectorAll('ol.sign-list li.sign-list__sign');
+	const searchBox = document.querySelector('input.filter-box');
+
+	var fTO = undefined;
+
+	function filter(term){
+
+		term = term.toLowerCase();
+
+		Array.from(signEls).forEach(element => {
+
+			const taggedWithTerm = Array.from(element.querySelectorAll('.tag-list__tag')).filter(tag => {
+				return tag.textContent.toLowerCase().indexOf(term) > -1;
+			});
+
+			if(taggedWithTerm.length < 1){
+				element.classList.add('filtered');
+			} else {
+				console.log(taggedWithTerm);
+				element.classList.remove('filtered');
+			}
+
+		});
+
+	}
+
+	searchBox.addEventListener('keyup', function(){
+
+		if(fTO !== undefined){
+			clearTimeout(fTO);
+			fTO = undefined;
+		}
+
+		(function(signToSearchFor){
+
+			setTimeout(function(){
+				filter(signToSearchFor);
+			}, 200);
+
+		})(this.value);
+
+	});
+
+</script>
 </body>
 </html>

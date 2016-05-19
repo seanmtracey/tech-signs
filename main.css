@@ -14,6 +14,17 @@ a {
 	padding: 0 5px;
 }
 
+.filter-box{
+	border: 1px solid white;
+    border-radius: 3px;
+    background: rgba(255,255,255,.2);
+    font-size: 1em;
+    outline: none;
+    margin-bottom: 1em;
+    padding: 0.3em 1em;
+    color: white;
+}
+
 .sign-list,
 .tag-list {
 	margin: 0;
@@ -30,6 +41,10 @@ a {
 	box-sizing: border-box;
 	padding: 5px;
 	width: 100%;
+}
+
+.sign-list__sign.filtered {
+	display: none;
 }
 
 @media (min-width:500px) {
